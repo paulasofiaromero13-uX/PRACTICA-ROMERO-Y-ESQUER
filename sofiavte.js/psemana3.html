@@ -1,0 +1,114 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>App de pedidos</title> 
+<link rel="stylesheet" href="styles.css"> 
+
+<style>
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    background-color: #f9f9f9; 
+    margin: 0;
+}
+
+h1 { 
+    margin-top: 20px; 
+}
+
+.productos { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    gap: 20px; 
+    margin-top: 30px; 
+    flex-wrap: wrap;
+}
+
+.producto { 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    padding: 15px; 
+    width: 220px; 
+    background-color: #fff; 
+    text-align: center;
+}
+
+.producto img { 
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    display: block;
+    margin: 0 auto;
+}
+
+.producto button { 
+    margin-top: 10px; 
+    padding: 10px 20px; 
+    background-color: #ff6347; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.producto button:hover { 
+    background-color: #e5533d; 
+}
+
+#carrito { 
+    margin-top: 40px; 
+    padding: 20px; 
+    border-top: 2px solid #333; 
+    text-align: center;
+}
+
+#listaPedidos { 
+    list-style: none; 
+    padding: 0; 
+}
+
+</style>
+
+</head> 
+<body> 
+
+<h1>Aplicación de pedidos</h1> 
+<div class="productos"> 
+<div class="producto"> 
+<img src="44971.jpg.jpg" alt="Sushi"> 
+<h2>Sushi</h2> 
+<p>Precio: $90 MXN</p> 
+<label>Cantidad: <input type="number" id="cantSushi" value="1" min="1"></label> 
+<button onclick="comprar('Sushi', 90, 'cantSushi')">Comprar</button> 
+</div> 
+<div class="producto"> 
+<img src="pexels-rajesh-tp-2098143.jpg" alt="Sushi"> 
+<h2>Sushi</h2> 
+<p>Precio: $120 MXN</p> 
+<label>Cantidad: <input type="number" id="cantSushi" value="1" 
+min="1"></label> 
+<button onclick="comprar('Sushi', 120, 'cantSushi')">Comprar</button> 
+</div> 
+<div class="producto"> 
+<img src="sushi-5002639_1280.jpg" alt="Sushi"> 
+<h2>Sushi</h2> 
+<p>Precio: $150 MXN</p> 
+<label>Cantidad: <input type="number" id="cantSushi" value="1" 
+min="1"></label> 
+<button onclick="comprar('Sushi', 150, 'cantSushi')">Comprar</button> 
+</div> 
+</div> 
+<div id="carrito"> 
+<h2>Carrito (<span id="contador">0</span> artículos)</h2> 
+<ul id="listaPedidos"></ul> 
+<p id="total">Total: $0 MXN</p> 
+<label for="cupon">Código de descuento:</label> 
+<input type="text" id="cupon" placeholder="Ej: DESCUENTO10"> 
+<button onclick="aplicarCupon()">Aplicar cupón</button> 
+<br><br> 
+<button onclick="confirmarCompra()">Confirmar compra</button> 
+<button onclick="vaciarCarrito()">Vaciar carrito</button> 
+</div>
